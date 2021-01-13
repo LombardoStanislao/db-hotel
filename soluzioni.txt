@@ -16,7 +16,9 @@ WHERE YEAR(date_of_birth) > 1988;
 
 Seleziona tutti gli ospiti che hanno più di 20 anni (al momento dell’esecuzione della query):
 
-
+SELECT * 
+FROM `ospiti`
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 20;
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -38,6 +40,15 @@ WHERE `status` = 'accepted';
 
 ---------------------------------------------------------------------------------------------------------------------
 
+Qual è il prezzo massimo pagato?
+
+SELECT MAX(price) 
+FROM `pagamenti`;
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
 Seleziona gli ospiti riconosciuti con patente e nati nel 1975:
 
 
@@ -52,15 +63,17 @@ WHERE `document_type` = 'Driver License' AND YEAR(`date_of_birth`) = 1975
 Quanti paganti sono anche ospiti?:
 
 SELECT COUNT(id)
-FROM `paganti`
+FROM `paganti` 
 WHERE `ospite_id` IS NOT NULL;
+
+
 
 
 ---------------------------------------------------------------------------------------------------------------------
 
 
-
 Quanti posti letto ha l’hotel in totale?:
+
 
 SELECT SUM(beds) 
 FROM `stanze`
