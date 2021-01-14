@@ -43,4 +43,13 @@ AND stanze.floor = 1;
 
 ● Prendi i dati di fatturazione per la prenotazione con id=7:
 
+SELECT name, lastname, price, prenotazione_id AS numero_prenotazione, address, pagamenti.created_at AS 'data_fatturazione'
+FROM pagamenti
+JOIN paganti
+ON pagamenti.pagante_id = paganti.id
+WHERE pagamenti.prenotazione_id = 7;
+
+
 ● Le stanze sono state tutte prenotate almeno una volta?(Visualizzare le stanze non ancora prenotate):
+
+
