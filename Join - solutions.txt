@@ -52,4 +52,13 @@ WHERE pagamenti.prenotazione_id = 7;
 
 ● Le stanze sono state tutte prenotate almeno una volta?(Visualizzare le stanze non ancora prenotate):
 
+SELECT stanze.floor, stanze.room_number, stanze.beds
+FROM prenotazioni
+RIGHT JOIN stanze
+ON prenotazioni.stanza_id = stanze.id
+WHERE prenotazioni.stanza_id IS NULL;
+
+
+
+
 
